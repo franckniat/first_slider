@@ -1,221 +1,222 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        #carousel{
-    padding: 50px 10px;
-    overflow: hidden;
-    width: 100%;
-}
+  <meta charset="utf-8" />
+  <title>Swiper demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
-#carousel h1{
-    font-size: 30px;
-}
+  <style>
+    html,
+    body {
+      position: relative;
+      height: 100%;
+    }
 
+    body {
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
 
-#carousel .slides{
-    display: flex;
-    gap: 15px;
-    position: relative;
-    width: 205px;
-    transition: transform ease-out 0.3s;
-}
+    .swiper {
+        background: #eee;
+      padding: 25px;
+      height: 450px;
+    }
 
-#carousel .item{
-    border: 2.5px solid rgba(170, 170, 170, 0.747);
-    border-radius: 8px;
-}
+    .swiper-slide {
+      font-size: 18px;
+      background: #fff;
+      width: 300px;
+      height: 360px;
+      border-radius: 8px;
+    }
+    .swiper-slide img{
+        width: 300px;
+        height: 300px;
+        border-radius: 8px 8px 0 0;
+    }
+    .swiper-slide h3 {
+        margin-top: 15px;
+        margin-left: 15px;
+        font-size: 16px;
+        font-weight: 300;
+        color: #444;
+        display: flex;
+        align-items: center;
+    }
 
-#carousel .item img{
-    width: 300px;
-    height: 300px;
-    border-radius: 8px 8px 0 0;
-    object-fit: cover;
-}
+    .swiper-pagination .swiper-pagination-bullet-active{
+        background-color: orange;
+        padding: 0 8px;
+        border-radius: 999px !important;
+    }
 
-#carousel .item h3{
-    padding-top: 5px;
-    padding-left: 15px;
-    padding-bottom: 5px;
-    font-weight: normal;
-    font-size: 16px;
-    color: #444;
-}
+    .swiper-pagination .swiper-pagination-bullet{
+        margin: 0 7px !important;
+    }
 
-#carousel .indicators{
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    margin-top: 30px;
-}
-
-#carousel .indicators .indicator{
-    width: 10px;
-    height: 10px;
-    border: none;
-    background-color: #9e9e9e;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-#carousel .indicators .indicator.active{
-    background-color:orangered;
-    width: 20px;
-    border-radius: 555px;
-}
-
-#carousel .indicators .indicator:hover{
-    background-color:rgb(250, 121, 74);
-}
-
-#carousel .controls{
-    position: absolute;
-    transform: translateY(-50%);
-    display: flex;
-    top: 50%;
-    left: 0;
-    right: 0;
-    justify-content: space-between;
-}
-
-#carousel .controls .next{
-    position: absolute;
-    right: 5px;
-    border: none;
-    background-color: #000;
-    color: #fff;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    border-radius: 50%;
-    box-shadow: 0 0 4px rgba(0,0,0,0.4);
-}
-
-#carousel .controls .prev{
-    position: absolute;
-   left: 5px;
-   border: none;
-    background-color: #000;
-    color: #fff;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    border-radius: 50%;
-    box-shadow: 0 0 4px rgba(0,0,0,0.4);
-}
-    </style>
-    <title>Slide</title>
+    .swiper-button-next{
+        border-radius: 50%;
+        background-color: #111;
+        display: flex;
+        padding: 10px;
+        width: 15px;
+        height: 15px;
+        right: 20px !important;
+        justify-content: center;
+        align-items: center;
+    }
+    .swiper-button-next::after, .swiper-button-prev::after{
+        display: none;
+    }
+    .swiper-button-prev {
+        border-radius: 50%;
+        display: flex;
+        padding: 10px;
+        width: 15px;
+        height: 15px;
+        justify-content: center;
+        align-items: center;
+        background-color: #111;
+    }
+  </style>
 </head>
+
 <body>
-<section id="carousel" class="carousel_container">
-    <h1>Et chez vous, c'est confortable ?</h1>   
-    <div class="carousel">
-      <div class="slides">
-        <section class="item">
+
+  <!-- Swiper -->
+  <div class="swiper">
+    <h1>Et chez vous, c'est confortable ?</h1>
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
             <img src="/1.webp" alt="Slide 1">
-            <h3>@littlemissinparis</h3>
-        </section>
-        <section class="item">
+            <h3>
+                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="16px" height="16px">
+                    <path d="M 16 3 C 8.8324839 3 3 8.8324839 3 16 L 3 34 C 3 41.167516 8.8324839 47 16 47 L 34 47 C 41.167516 47 47 41.167516 47 34 L 47 16 C 47 8.8324839 41.167516 3 34 3 L 16 3 z M 16 5 L 34 5 C 40.086484 5 45 9.9135161 45 16 L 45 34 C 45 40.086484 40.086484 45 34 45 L 16 45 C 9.9135161 45 5 40.086484 5 34 L 5 16 C 5 9.9135161 9.9135161 5 16 5 z M 37 11 A 2 2 0 0 0 35 13 A 2 2 0 0 0 37 15 A 2 2 0 0 0 39 13 A 2 2 0 0 0 37 11 z M 25 14 C 18.936712 14 14 18.936712 14 25 C 14 31.063288 18.936712 36 25 36 C 31.063288 36 36 31.063288 36 25 C 36 18.936712 31.063288 14 25 14 z M 25 16 C 29.982407 16 34 20.017593 34 25 C 34 29.982407 29.982407 34 25 34 C 20.017593 34 16 29.982407 16 25 C 16 20.017593 20.017593 16 25 16 z"/>
+                </svg>&nbsp;
+                @littlemissinparis
+            </h3>
+      </div>
+      <div class="swiper-slide">
             <img src="/2.webp" alt="Slide 2">
-            <h3>@anneclaire_ruel</h3>
-        </section>
-        <section class="item">
+            <h3> 
+                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="16px" height="16px">
+                    <path d="M 16 3 C 8.8324839 3 3 8.8324839 3 16 L 3 34 C 3 41.167516 8.8324839 47 16 47 L 34 47 C 41.167516 47 47 41.167516 47 34 L 47 16 C 47 8.8324839 41.167516 3 34 3 L 16 3 z M 16 5 L 34 5 C 40.086484 5 45 9.9135161 45 16 L 45 34 C 45 40.086484 40.086484 45 34 45 L 16 45 C 9.9135161 45 5 40.086484 5 34 L 5 16 C 5 9.9135161 9.9135161 5 16 5 z M 37 11 A 2 2 0 0 0 35 13 A 2 2 0 0 0 37 15 A 2 2 0 0 0 39 13 A 2 2 0 0 0 37 11 z M 25 14 C 18.936712 14 14 18.936712 14 25 C 14 31.063288 18.936712 36 25 36 C 31.063288 36 36 31.063288 36 25 C 36 18.936712 31.063288 14 25 14 z M 25 16 C 29.982407 16 34 20.017593 34 25 C 34 29.982407 29.982407 34 25 34 C 20.017593 34 16 29.982407 16 25 C 16 20.017593 20.017593 16 25 16 z"/>
+                </svg>&nbsp;
+                 @anneclaire_ruel
+            </h3>
+      </div>
+      <div class="swiper-slide">
             <img src="/3.webp" alt="Slide 3">
-            <h3>@dianataveira</h3>
-        </section>
-        <section class="item">
+            <h3>
+                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="16px" height="16px">
+                    <path d="M 16 3 C 8.8324839 3 3 8.8324839 3 16 L 3 34 C 3 41.167516 8.8324839 47 16 47 L 34 47 C 41.167516 47 47 41.167516 47 34 L 47 16 C 47 8.8324839 41.167516 3 34 3 L 16 3 z M 16 5 L 34 5 C 40.086484 5 45 9.9135161 45 16 L 45 34 C 45 40.086484 40.086484 45 34 45 L 16 45 C 9.9135161 45 5 40.086484 5 34 L 5 16 C 5 9.9135161 9.9135161 5 16 5 z M 37 11 A 2 2 0 0 0 35 13 A 2 2 0 0 0 37 15 A 2 2 0 0 0 39 13 A 2 2 0 0 0 37 11 z M 25 14 C 18.936712 14 14 18.936712 14 25 C 14 31.063288 18.936712 36 25 36 C 31.063288 36 36 31.063288 36 25 C 36 18.936712 31.063288 14 25 14 z M 25 16 C 29.982407 16 34 20.017593 34 25 C 34 29.982407 29.982407 34 25 34 C 20.017593 34 16 29.982407 16 25 C 16 20.017593 20.017593 16 25 16 z"/>
+                </svg>&nbsp;
+                @dianataveira
+            </h3>
+      </div>
+      <div class="swiper-slide">
             <img src="/4.webp" alt="Slide 4">
-            <h3>@joliemhome</h3>
-        </section>
-        <section class="item">
+            <h3>
+                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="16px" height="16px">
+                    <path d="M 16 3 C 8.8324839 3 3 8.8324839 3 16 L 3 34 C 3 41.167516 8.8324839 47 16 47 L 34 47 C 41.167516 47 47 41.167516 47 34 L 47 16 C 47 8.8324839 41.167516 3 34 3 L 16 3 z M 16 5 L 34 5 C 40.086484 5 45 9.9135161 45 16 L 45 34 C 45 40.086484 40.086484 45 34 45 L 16 45 C 9.9135161 45 5 40.086484 5 34 L 5 16 C 5 9.9135161 9.9135161 5 16 5 z M 37 11 A 2 2 0 0 0 35 13 A 2 2 0 0 0 37 15 A 2 2 0 0 0 39 13 A 2 2 0 0 0 37 11 z M 25 14 C 18.936712 14 14 18.936712 14 25 C 14 31.063288 18.936712 36 25 36 C 31.063288 36 36 31.063288 36 25 C 36 18.936712 31.063288 14 25 14 z M 25 16 C 29.982407 16 34 20.017593 34 25 C 34 29.982407 29.982407 34 25 34 C 20.017593 34 16 29.982407 16 25 C 16 20.017593 20.017593 16 25 16 z"/>
+                </svg>&nbsp;
+                @joliemhome
+            </h3>
+      </div>
+      <div class="swiper-slide">
             <img src="/5.webp" alt="Slide 5">
-            <h3>@maddiebroderrick</h3>
-        </section>
-        <section class="item">
+            <h3>
+                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="16px" height="16px">
+                    <path d="M 16 3 C 8.8324839 3 3 8.8324839 3 16 L 3 34 C 3 41.167516 8.8324839 47 16 47 L 34 47 C 41.167516 47 47 41.167516 47 34 L 47 16 C 47 8.8324839 41.167516 3 34 3 L 16 3 z M 16 5 L 34 5 C 40.086484 5 45 9.9135161 45 16 L 45 34 C 45 40.086484 40.086484 45 34 45 L 16 45 C 9.9135161 45 5 40.086484 5 34 L 5 16 C 5 9.9135161 9.9135161 5 16 5 z M 37 11 A 2 2 0 0 0 35 13 A 2 2 0 0 0 37 15 A 2 2 0 0 0 39 13 A 2 2 0 0 0 37 11 z M 25 14 C 18.936712 14 14 18.936712 14 25 C 14 31.063288 18.936712 36 25 36 C 31.063288 36 36 31.063288 36 25 C 36 18.936712 31.063288 14 25 14 z M 25 16 C 29.982407 16 34 20.017593 34 25 C 34 29.982407 29.982407 34 25 34 C 20.017593 34 16 29.982407 16 25 C 16 20.017593 20.017593 16 25 16 z"/>
+                </svg>&nbsp;
+                @maddiebroderrick
+            </h3>
+      </div>
+      <div class="swiper-slide">
             <img src="/6.webp" alt="Slide 6">
-            <h3>@oriane.home</h3>
-        </section>
-        <section class="item">
+            <h3>
+                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="16px" height="16px">
+                    <path d="M 16 3 C 8.8324839 3 3 8.8324839 3 16 L 3 34 C 3 41.167516 8.8324839 47 16 47 L 34 47 C 41.167516 47 47 41.167516 47 34 L 47 16 C 47 8.8324839 41.167516 3 34 3 L 16 3 z M 16 5 L 34 5 C 40.086484 5 45 9.9135161 45 16 L 45 34 C 45 40.086484 40.086484 45 34 45 L 16 45 C 9.9135161 45 5 40.086484 5 34 L 5 16 C 5 9.9135161 9.9135161 5 16 5 z M 37 11 A 2 2 0 0 0 35 13 A 2 2 0 0 0 37 15 A 2 2 0 0 0 39 13 A 2 2 0 0 0 37 11 z M 25 14 C 18.936712 14 14 18.936712 14 25 C 14 31.063288 18.936712 36 25 36 C 31.063288 36 36 31.063288 36 25 C 36 18.936712 31.063288 14 25 14 z M 25 16 C 29.982407 16 34 20.017593 34 25 C 34 29.982407 29.982407 34 25 34 C 20.017593 34 16 29.982407 16 25 C 16 20.017593 20.017593 16 25 16 z"/>
+                </svg>&nbsp;
+                @oriane.home
+            </h3>
+      </div>
+      <div class="swiper-slide">
             <img src="/7.webp" alt="Slide 7">
-            <h3>@romina_paret</h3>
-        </section>
-        <section class="item">
+            <h3>
+                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="16px" height="16px">
+                    <path d="M 16 3 C 8.8324839 3 3 8.8324839 3 16 L 3 34 C 3 41.167516 8.8324839 47 16 47 L 34 47 C 41.167516 47 47 41.167516 47 34 L 47 16 C 47 8.8324839 41.167516 3 34 3 L 16 3 z M 16 5 L 34 5 C 40.086484 5 45 9.9135161 45 16 L 45 34 C 45 40.086484 40.086484 45 34 45 L 16 45 C 9.9135161 45 5 40.086484 5 34 L 5 16 C 5 9.9135161 9.9135161 5 16 5 z M 37 11 A 2 2 0 0 0 35 13 A 2 2 0 0 0 37 15 A 2 2 0 0 0 39 13 A 2 2 0 0 0 37 11 z M 25 14 C 18.936712 14 14 18.936712 14 25 C 14 31.063288 18.936712 36 25 36 C 31.063288 36 36 31.063288 36 25 C 36 18.936712 31.063288 14 25 14 z M 25 16 C 29.982407 16 34 20.017593 34 25 C 34 29.982407 29.982407 34 25 34 C 20.017593 34 16 29.982407 16 25 C 16 20.017593 20.017593 16 25 16 z"/>
+                </svg>&nbsp;
+                @romina_paret
+            </h3>
+      </div>
+      <div class="swiper-slide">
             <img src="/8.webp" alt="Slide 8">
-            <h3>@shaunirau</h3>
-        </section>
-        <section class="item">
+            <h3>
+                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="16px" height="16px">
+                    <path d="M 16 3 C 8.8324839 3 3 8.8324839 3 16 L 3 34 C 3 41.167516 8.8324839 47 16 47 L 34 47 C 41.167516 47 47 41.167516 47 34 L 47 16 C 47 8.8324839 41.167516 3 34 3 L 16 3 z M 16 5 L 34 5 C 40.086484 5 45 9.9135161 45 16 L 45 34 C 45 40.086484 40.086484 45 34 45 L 16 45 C 9.9135161 45 5 40.086484 5 34 L 5 16 C 5 9.9135161 9.9135161 5 16 5 z M 37 11 A 2 2 0 0 0 35 13 A 2 2 0 0 0 37 15 A 2 2 0 0 0 39 13 A 2 2 0 0 0 37 11 z M 25 14 C 18.936712 14 14 18.936712 14 25 C 14 31.063288 18.936712 36 25 36 C 31.063288 36 36 31.063288 36 25 C 36 18.936712 31.063288 14 25 14 z M 25 16 C 29.982407 16 34 20.017593 34 25 C 34 29.982407 29.982407 34 25 34 C 20.017593 34 16 29.982407 16 25 C 16 20.017593 20.017593 16 25 16 z"/>
+                </svg>&nbsp;
+                @shaunirau
+            </h3>
+      </div>
+      <div class="swiper-slide">
             <img src="/9.webp" alt="Slide 9">
-            <h3>@inenjijs</h3>
-        </section>
-        <section class="item">
+            <h3>
+                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="16px" height="16px">
+                    <path d="M 16 3 C 8.8324839 3 3 8.8324839 3 16 L 3 34 C 3 41.167516 8.8324839 47 16 47 L 34 47 C 41.167516 47 47 41.167516 47 34 L 47 16 C 47 8.8324839 41.167516 3 34 3 L 16 3 z M 16 5 L 34 5 C 40.086484 5 45 9.9135161 45 16 L 45 34 C 45 40.086484 40.086484 45 34 45 L 16 45 C 9.9135161 45 5 40.086484 5 34 L 5 16 C 5 9.9135161 9.9135161 5 16 5 z M 37 11 A 2 2 0 0 0 35 13 A 2 2 0 0 0 37 15 A 2 2 0 0 0 39 13 A 2 2 0 0 0 37 11 z M 25 14 C 18.936712 14 14 18.936712 14 25 C 14 31.063288 18.936712 36 25 36 C 31.063288 36 36 31.063288 36 25 C 36 18.936712 31.063288 14 25 14 z M 25 16 C 29.982407 16 34 20.017593 34 25 C 34 29.982407 29.982407 34 25 34 C 20.017593 34 16 29.982407 16 25 C 16 20.017593 20.017593 16 25 16 z"/>
+                </svg>&nbsp;
+                @inenjijs
+            </h3>
+      </div>
+      <div class="swiper-slide">
             <img src="/10.webp" alt="Slide 10">
-            <h3>@daphnepaelick</h3>
-        </section>
-      </div>
-      <div class="controls">
-        <button class="prev">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
-            </svg>
-        </button>
-        <button class="next">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-            </svg>
-        </button>
-    </div>
-      <div class="indicators">
-        <button class="indicator active"></button>
-        <button class="indicator"></button>
-        <button class="indicator"></button>
-        <button class="indicator"></button>
-        <button class="indicator"></button>
-        <button class="indicator"></button>
-        <button class="indicator"></button>
-        <button class="indicator"></button>
-        <button class="indicator"></button>
-        <button class="indicator"></button>
+            <h3>
+                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="16px" height="16px">
+                    <path d="M 16 3 C 8.8324839 3 3 8.8324839 3 16 L 3 34 C 3 41.167516 8.8324839 47 16 47 L 34 47 C 41.167516 47 47 41.167516 47 34 L 47 16 C 47 8.8324839 41.167516 3 34 3 L 16 3 z M 16 5 L 34 5 C 40.086484 5 45 9.9135161 45 16 L 45 34 C 45 40.086484 40.086484 45 34 45 L 16 45 C 9.9135161 45 5 40.086484 5 34 L 5 16 C 5 9.9135161 9.9135161 5 16 5 z M 37 11 A 2 2 0 0 0 35 13 A 2 2 0 0 0 37 15 A 2 2 0 0 0 39 13 A 2 2 0 0 0 37 11 z M 25 14 C 18.936712 14 14 18.936712 14 25 C 14 31.063288 18.936712 36 25 36 C 31.063288 36 36 31.063288 36 25 C 36 18.936712 31.063288 14 25 14 z M 25 16 C 29.982407 16 34 20.017593 34 25 C 34 29.982407 29.982407 34 25 34 C 20.017593 34 16 29.982407 16 25 C 16 20.017593 20.017593 16 25 16 z"/>
+                </svg>&nbsp;
+                @daphnepaelick
+            </h3>
       </div>
     </div>
-</section>
-    <script>
-        const prevButton = document.querySelector('.prev');
-const nextButton = document.querySelector('.next');
-const indicators = document.querySelectorAll('.indicator');
-const slides = document.querySelector('.slides');
+    <div class="swiper-button-next">
+        <img src="next.svg" alt="next">
+    </div>
+    <div class="swiper-button-prev">
+        <img src="prev.svg" alt="prev">
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
 
-let currentIndex = 0;
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
-function goToSlide(index) {
-  slides.style.transform = `translateX(-${index * 100}%)`;
-  indicators.forEach((indicator, i) => {
-    indicator.classList.toggle('active', i === index);
-  });
-}
-
-prevButton.addEventListener('click', () => {
-  currentIndex = (currentIndex - 1 + indicators.length) % indicators.length;
-  goToSlide(currentIndex);
-});
-
-nextButton.addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % indicators.length;
-  goToSlide(currentIndex);
-});
-
-indicators.forEach((indicator, i) => {
-  indicator.addEventListener('click', () => {
-    currentIndex = i;
-    goToSlide(currentIndex);
-  });
-});
-
-goToSlide(currentIndex);
-
-    </script>
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper('.swiper', {
+        spaceBetween: 15,
+        slidesPerView: 'auto',
+        keyboard: {
+        enabled: true,
+        onlyInViewport: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        direction: 'horizontal',
+        navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  </script>
 </body>
+
 </html>
